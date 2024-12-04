@@ -2,7 +2,7 @@
 # Document Print Utility with Command Line Args and Silent Print
 
 ## Overview
-This tool automates the printing of PDF documents using **SumatraPDF**.
+This tool automates the printing of PDF documents using **[SumatraPDF](https://www.sumatrapdfreader.org)**.
 
 It supports various customization options, including specific printer selection, copy count, page size, and color. 
 Additionally, it allows for keyword-based actions by integrating with a Python script to search PDFs for specific keywords and adjust print settings accordingly.
