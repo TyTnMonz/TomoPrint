@@ -39,7 +39,7 @@ The program can also monitor a folder and automatically print new documents or p
 
 ## Requirements
 - **.NET Core SDK** (latest version recommended).
-- **SumatraPDF** executable in the program’s directory.
+- **SumatraPDF** executable in the program’s directory. You can download the Portable Version from here [Download SumatraPDF](https://www.sumatrapdfreader.org/download-free-pdf-viewer).
 - **Python 3.x** installed (path defined in `config.cfg`).
 - Python script (`search.py`) in the program’s directory.
 
