@@ -43,7 +43,7 @@ The printing process can be **silent** (without showing any UI).
 ## Requirements
 - **.NET Core SDK** (latest version recommended).
 - **SumatraPDF** executable in the program’s directory. You can download the Portable Version from here [Download SumatraPDF](https://www.sumatrapdfreader.org/download-free-pdf-viewer).
-- **Python 3.x** installed (path defined in `config.cfg`) and **PyMuPDF** library.
+- **Python 3.x** installed (path defined in `config.cfg`) and **[PyMuPDF](https://github.com/pymupdf/PyMuPDF)** library.
 - Python script (`search.py`) in the program’s directory.
 
 ---
