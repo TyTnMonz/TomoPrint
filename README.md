@@ -68,25 +68,25 @@ The printing process can be **silent** (without showing any UI).
 
 ---
 
-## Usage Examples
+## Usage Examples, from Bash
 
 1. **Print a single document using the default printer:**
    ```bash
-   dotnet run -- -d "C:\Documents\file.pdf"
+   TomoPrint.exe -d "C:\Documents\file.pdf"
    ```
 
 2. **Print all PDF documents in a folder with 2 copies each:**
    ```bash
-   dotnet run -- -f "C:\Documents\PDFs" -c 2
+   TomoPrint.exe -f "C:\Documents\PDFs" -c 2
    ```
 
 3. **Silently print all PDF documents in a folder with 2 copies each and activate the Watchdog on that folder (every time a new PDF is added, it will be immediately printed):**
    ```bash
-   dotnet run -- -f "C:\Documents\PDFs" -c 2 -w -s
+   TomoPrint.exe -f "C:\Documents\PDFs" -c 2 -w -s
    ```
 
 4. **Print a document and trigger a keyword-based rule (keyword: "Transport", trigger: 3 occurrences, 5 copies).
    This means that 5 copies of the PDF file will be printed if the keyword "Transport" will be find 3 ( Trigger ) times inside the document.**
    ```bash
-   dotnet run -- -d "C:\Documents\invoice.pdf" -k "Transport,3,5"
+   TomoPrint.exe -d "C:\Documents\invoice.pdf" -k "Transport,3,5"
    ```
