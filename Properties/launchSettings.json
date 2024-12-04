@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TomoPrint": {
+      "commandName": "Project",
+      "commandLineArgs": "-d \"C:\\DDV_357766_2024_5_10161_2122024.PDF\""
+    }
+  }
+}
