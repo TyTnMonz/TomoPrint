@@ -80,7 +80,8 @@ The printing process can be **silent** (without showing any UI).
    dotnet run -- -f "C:\Documents\PDFs" -c 2
    ```
 
-3. **Print a document and trigger a keyword-based rule (keyword: "Transport", trigger: 3 occurrences, 5 copies):**
+3. **Print a document and trigger a keyword-based rule (keyword: "Transport", trigger: 3 occurrences, 5 copies).
+   This means that 5 copies of the PDF file will be printed if the keyword "Transport" will be find 3 ( Trigger ) times inside the document.**
    ```bash
    dotnet run -- -d "C:\Documents\invoice.pdf" -k "Transport,3,5"
    ```
