@@ -80,9 +80,9 @@ The printing process can be **silent** (without showing any UI).
    dotnet run -- -f "C:\Documents\PDFs" -c 2
    ```
 
-3. **Print all PDF documents in a folder with 2 copies each and activate the Watchdog on that folder ( every time a new PDF is added to the folder it will be immediately printed ):**
+3. **Silently print all PDF documents in a folder with 2 copies each and activate the Watchdog on that folder (every time a new PDF is added, it will be immediately printed):**
    ```bash
-   dotnet run -- -f "C:\Documents\PDFs" -c 2 -w
+   dotnet run -- -f "C:\Documents\PDFs" -c 2 -w -s
    ```
 
 4. **Print a document and trigger a keyword-based rule (keyword: "Transport", trigger: 3 occurrences, 5 copies).
