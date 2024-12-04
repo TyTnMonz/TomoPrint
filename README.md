@@ -2,9 +2,12 @@
 # Document Print Utility with Keyword-Based Rules
 
 ## Overview
-This program is a C# application designed to automate the printing of PDF documents using **SumatraPDF**. It supports various customization options, including specific printer selection, copy count, page size, and color. Additionally, it allows for keyword-based actions by integrating with a Python script to search PDFs for specific keywords and adjust print settings accordingly.
+This tool automates the printing of PDF documents using **SumatraPDF**.
 
-The program can also monitor a folder and automatically print new documents or periodically reprint files at specified intervals.
+It supports various customization options, including specific printer selection, copy count, page size, and color. 
+Additionally, it allows for keyword-based actions by integrating with a Python script to search PDFs for specific keywords and adjust print settings accordingly.
+
+The printing process can be **silent** (without showing any UI).
 
 ---
 
