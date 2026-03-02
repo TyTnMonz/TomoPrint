@@ -85,7 +85,7 @@ The printing process can be **silent** (without showing any UI).
    
    When set, the 'Files Per Session' option allows you to print a subset of the documents present inside the folder.
    This is useful to prevent starting an indefinitely long print job when a maximum number of documents are uploaded into the folder within a short time frame.
-   By setting a limit—possibly in combination with the execution timeout—it allows for better control of the print queue:**
+   By setting a limit—possibly in combination with the execution timeout—it allows for better control of the print queue:
    ```bash
    TomoPrint.exe -f "C:\Documents\PDFs" -c 2 -x 20 -t 300
    ```
