@@ -22,18 +22,20 @@ The program can also monitor a folder and automatically print new documents or p
 
 | Option              | Alias | Description                                                                                              | Default          |
 |---------------------|-------|----------------------------------------------------------------------------------------------------------|------------------|
-| `--document`        | `-d`  | Path to the PDF document to print.                                                                        | -                |
-| `--folder`          | `-f`  | Path to a folder containing documents to print.                                                           | -                |
-| `--extension`       | `-e`  | File extension to filter (only used with `--folder`).                                                     | `pdf`            |
-| `--printer`         | `-p`  | Name of the printer to use.                                                                               | Default printer  |
-| `--copies`          | `-c`  | Number of copies to print.                                                                                | 1                |
-| `--size`            | `-a`  | Paper size (e.g., A4, Letter).                                                                            | `A4`             |
-| `--color`           | `-l`  | Print in color (`true`) or black and white (`false`).                                                     | `false`          |
-| `--timer`           | `-t`  | Interval (in seconds) for repeated printing.                                                              | 0 (disabled)     |
-| `--watcher`         | `-w`  | Enable folder monitoring to print new files.                                                              | `false`          |
-| `--silent`          | `-s`  | Enable silent printing (no dialogs).                                                                      | `true`           |
-| `--output`          | `-o`  | Folder to move printed files after printing.                                                              | `printed`        |
-| `--keywordSearch`   | `-k`  | Keyword-based rule (`<keyword,trigger,copies>`).                                                          | -                |
+| `--document`        | `-d`  | Path to the PDF document to print.                                                                       | -                |
+| `--folder`          | `-f`  | Path to a folder containing documents to print.                                                          | -                |
+| `--extension`       | `-e`  | File extension to filter (only used with `--folder`).                                                    | `pdf`            |
+| `--printer`         | `-p`  | Name of the printer to use.                                                                              | Default printer  |
+| `--copies`          | `-c`  | Number of copies to print.                                                                               | 1                |
+| `--size`            | `-a`  | Paper size (e.g., A4, Letter).                                                                           | `A4`             |
+| `--color`           | `-l`  | Print in color (`true`) or black and white (`false`).                                                    | `false`          |
+| `--timer`           | `-t`  | Interval (in seconds) for repeated printing.                                                             | 0 (disabled)     |
+| `--watcher`         | `-w`  | Enable folder monitoring to print new files.                                                             | `false`          |
+| `--silent`          | `-s`  | Enable silent printing (no dialogs).                                                                     | `true`           |
+| `--output`          | `-o`  | Folder to move printed files after printing.                                                             | `printed`        |
+| `--keywordSearch`   | `-k`  | Keyword-based rule (`<keyword,trigger,copies>`).                                                         | -                |
+| `--filePerSession`  | `-x`  | Maximum number of files printed per session. Use this to limit how many documents are printed            | -1               |
+|                     |       | at once when many files are loaded in the folder. (Default: -1 = print all).                             | (print all)      |
 
 ---
 
@@ -77,7 +79,12 @@ The program can also monitor a folder and automatically print new documents or p
    dotnet run -- -f "C:\Documents\PDFs" -c 2
    ```
 
-3. **Print a document and trigger a keyword-based rule (keyword: "Transport", trigger: 3 occurrences, 5 copies):**
+3. **Print the first 20 PDF documents in a folder with 2 copies each:**
+   ```bash
+   dotnet run -- -f "C:\Documents\PDFs" -c 2 -x 20
+   ```
+
+4. **Print a document and trigger a keyword-based rule (keyword: "Transport", trigger: 3 occurrences, 5 copies):**
    ```bash
    dotnet run -- -d "C:\Documents\invoice.pdf" -k "Transport,3,5"
    ```
