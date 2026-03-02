@@ -1,10 +1,13 @@
 
-# Document Print Utility with Keyword-Based Rules
+# Document Print Utility with Command Line Args and Silent Print
 
 ## Overview
-This program is a C# application designed to automate the printing of PDF documents using **SumatraPDF**. It supports various customization options, including specific printer selection, copy count, page size, and color. Additionally, it allows for keyword-based actions by integrating with a Python script to search PDFs for specific keywords and adjust print settings accordingly.
+This tool automates the printing of PDF documents using **[SumatraPDF](https://www.sumatrapdfreader.org)**.
 
-The program can also monitor a folder and automatically print new documents or periodically reprint files at specified intervals.
+It supports various customization options, including specific printer selection, copy count, page size, and color. 
+Additionally, it allows for keyword-based actions by integrating with a Python script to search PDFs for specific keywords and adjust print settings accordingly.
+
+The printing process can be **silent** (without showing any UI).
 
 ---
 
@@ -41,8 +44,8 @@ The program can also monitor a folder and automatically print new documents or p
 
 ## Requirements
 - **.NET Core SDK** (latest version recommended).
-- **SumatraPDF** executable in the program’s directory.
-- **Python 3.x** installed (path defined in `config.cfg`).
+- **SumatraPDF** executable in the program’s directory. You can download the Portable Version from here [Download SumatraPDF](https://www.sumatrapdfreader.org/download-free-pdf-viewer).
+- **Python 3.x** installed (path defined in `config.cfg`) and **[PyMuPDF](https://github.com/pymupdf/PyMuPDF)** library.
 - Python script (`search.py`) in the program’s directory.
 
 ---
@@ -67,24 +70,24 @@ The program can also monitor a folder and automatically print new documents or p
 
 ---
 
-## Usage Examples
+## Usage Examples, from Bash
 
 1. **Print a single document using the default printer:**
    ```bash
-   dotnet run -- -d "C:\Documents\file.pdf"
+   TomoPrint.exe -d "C:\Documents\file.pdf"
    ```
 
 2. **Print all PDF documents in a folder with 2 copies each:**
    ```bash
-   dotnet run -- -f "C:\Documents\PDFs" -c 2
+   TomoPrint.exe -f "C:\Documents\PDFs" -c 2
    ```
 
-3. **Print the first 20 PDF documents in a folder with 2 copies each:**
+3. **Silently print all PDF documents in a folder with 2 copies each and activate the Watchdog on that folder (every time a new PDF is added, it will be immediately printed):**
    ```bash
-   dotnet run -- -f "C:\Documents\PDFs" -c 2 -x 20
+   TomoPrint.exe -f "C:\Documents\PDFs" -c 2 -w -s
    ```
 
-4. **Print a document and trigger a keyword-based rule (keyword: "Transport", trigger: 3 occurrences, 5 copies):**
+4. **Print a document and trigger a keyword-based rule (keyword: 'Transport', trigger: 3 occurrences, 5 copies). This means that 5 copies of the PDF will be printed if the keyword 'Transport' is found 3 times (the trigger) inside the document.**
    ```bash
-   dotnet run -- -d "C:\Documents\invoice.pdf" -k "Transport,3,5"
+   TomoPrint.exe -d "C:\Documents\invoice.pdf" -k "Transport,3,5"
    ```
