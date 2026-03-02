@@ -58,6 +58,9 @@ class Program
 
         [Option('k', "keywordSearch", Default = "", HelpText = "Keyword to search in files, trigger count, and copies (format: <keyword,trigger,copies>).")]
         public string KeywordSearch { get; set; }
+
+        [Option('x', "filePerSession", Default = -1, HelpText = "Maximum number of files printed per session. Use this to limit how many documents are printed at once when many files are loaded in the folder. (Default: -1 = print all)")]
+        public int FileNumberPerSession { get; set; }
     }
 
     static System.Timers.Timer printTimer;
@@ -157,8 +160,16 @@ class Program
 
         string searchPattern = $"*.{options.Extension}";
         string[] files = Directory.GetFiles(options.Folder, searchPattern);
+        if (files.Length == 0)
+        {
+            Console.WriteLine($"No .{options.Extension} files found in the folder '{options.Folder}'.");
+            return;
+        }
 
-        foreach (string file in files)
+        // Limit the number of files to print based on the FileNumberPerSession option if set
+        string[] filesToPrint = options.FileNumberPerSession > 0 ? files[..Math.Min(options.FileNumberPerSession, files.Length)] : files;
+
+        foreach (string file in filesToPrint)
         {
             PrintDocument(file, options);
         }
@@ -261,28 +272,28 @@ class Program
 
         // Set up process start information
         ProcessStartInfo startInfo = new ProcessStartInfo
+        {
+            FileName = pythonExePath,
+            Arguments = arguments,
+            RedirectStandardOutput = true, // Capture the script output
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+
+        // Run the Python script and capture its output
+        using (Process process = Process.Start(startInfo))
+        {
+            using (StreamReader reader = process.StandardOutput)
             {
-                FileName = pythonExePath,
-                Arguments = arguments,
-                RedirectStandardOutput = true, // Capture the script output
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
+                string result = reader.ReadToEnd();
+                Console.WriteLine($"Search result: {result}");
 
-            // Run the Python script and capture its output
-            using (Process process = Process.Start(startInfo))
-            {
-                using (StreamReader reader = process.StandardOutput)
-                {
-                    string result = reader.ReadToEnd();
-                    Console.WriteLine($"Search result: {result}");
+                // Attempt to parse the result as an integer
+                if (int.TryParse(result.Trim(), out int count))
+                    return count;
 
-                    // Attempt to parse the result as an integer
-                    if (int.TryParse(result.Trim(), out int count))
-                        return count;
-
-                    return 0; // Return 0 if parsing fails
-                }
+                return 0; // Return 0 if parsing fails
             }
         }
     }
+}
