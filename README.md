@@ -37,8 +37,7 @@ The printing process can be **silent** (without showing any UI).
 | `--silent`          | `-s`  | Enable silent printing (no dialogs).                                                                     | `true`           |
 | `--output`          | `-o`  | Folder to move printed files after printing.                                                             | `printed`        |
 | `--keywordSearch`   | `-k`  | Keyword-based rule (`<keyword,trigger,copies>`).                                                         | -                |
-| `--filePerSession`  | `-x`  | Maximum number of files printed per session. Use this to limit how many documents are printed            | -1               |
-|                     |       | at once when many files are loaded in the folder. (Default: -1 = print all).                             | (print all)      |
+| `--filePerSession`  | `-x`  | Maximum number of files printed per session. Use this to limit how many documents are printed at once when many files are loaded in the folder. | -1 (print all)      |
 
 ---
 
