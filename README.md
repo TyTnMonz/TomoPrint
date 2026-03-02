@@ -28,16 +28,16 @@ The printing process can be **silent** (without showing any UI).
 | `--document`        | `-d`  | Path to the PDF document to print.                                                                       | -                |
 | `--folder`          | `-f`  | Path to a folder containing documents to print.                                                          | -                |
 | `--extension`       | `-e`  | File extension to filter (only used with `--folder`).                                                    | `pdf`            |
-| `--printer`         | `-p`  | Name of the printer to use.                                                                              | Default printer  |
-| `--copies`          | `-c`  | Number of copies to print.                                                                               | 1                |
+| `--printer`         | `-p`  | Name of the printer to use.                                                                              | `Default printer`|
+| `--copies`          | `-c`  | Number of copies to print.                                                                               | `1`              |
 | `--size`            | `-a`  | Paper size (e.g., A4, Letter).                                                                           | `A4`             |
 | `--color`           | `-l`  | Print in color (`true`) or black and white (`false`).                                                    | `false`          |
-| `--timer`           | `-t`  | Interval (in seconds) for repeated printing.                                                             | 0 (disabled)     |
+| `--timer`           | `-t`  | Interval (in seconds) for repeated printing.                                                             | `0 (disabled)`   |
 | `--watcher`         | `-w`  | Enable folder monitoring to print new files.                                                             | `false`          |
 | `--silent`          | `-s`  | Enable silent printing (no dialogs).                                                                     | `true`           |
 | `--output`          | `-o`  | Folder to move printed files after printing.                                                             | `printed`        |
 | `--keywordSearch`   | `-k`  | Keyword-based rule (`<keyword,trigger,copies>`).                                                         | -                |
-| `--filePerSession`  | `-x`  | Maximum number of files printed per session. Use this to limit how many documents are printed at once when many files are loaded in the folder. | -1 (print all)      |
+| `--filePerSession`  | `-x`  | Maximum number of files printed per session. Use this to limit how many documents are printed at once when many files are loaded in the folder. Must be greater than 0. | `-1 (print all)`      |
 
 ---
 
